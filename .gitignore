@@ -9,3 +9,5 @@ __pycache__/
 
 # SQLite database:
 db.sqlite3
+
+migrations
