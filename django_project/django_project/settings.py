@@ -9,6 +9,13 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+from dotenv import load_dotenv
+load_dotenv()
+
+import os, certifi
+
+os.environ['SSL_CERT_FILE'] = certifi.where()
+
 
 from pathlib import Path
 
@@ -140,3 +147,11 @@ LOGIN_URL = 'login'
 MEDIA_ROOT = BASE_DIR / 'media' # Newer modern and Pythonic way 
 MEDIA_URL = '/media/'
 
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER') # Login email address, Stored as an environment varaible
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS') #App Password set from gmail, Stored as an environment varaible
