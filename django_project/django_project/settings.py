@@ -95,13 +95,12 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # }
 
 # Replace the SQLite DATABASES configuration with PostgreSQL:
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
 DATABASES = {
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgres://django_blog_1_user:tzGoVynlirpdNsLUdJa2LcDvDd7N1Hbw@dpg-cp336hkf7o1s73bqvih0-a/django_blog_1',
-        conn_max_age=600
-    )
+    'default': dj_database_url.config()
 }
+
 
 
 # Password validation
