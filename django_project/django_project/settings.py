@@ -31,8 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'blog.apps.BlogConfig',
-    'users.apps.UsersConfig',
+    'blog.apps.BlogConfig',#add blog
+    'users.apps.UsersConfig',#add user
+    'crispy_forms',#add crispy 
+    'crispy_bootstrap5',#add bootstrap5 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -123,3 +125,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# specify the version of bootstrap that the crispy forms to use
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+#to redirect from accounts/profile/ to home page
+LOGIN_REDIRECT_URL = 'blog-home'
+
+# to tell Django the location for the login route.or http://127.0.0.1:8000/accounts/login/?next=/profile/
+LOGIN_URL = 'login' 
+
+# to store uploaded files
+MEDIA_ROOT = BASE_DIR / 'media' # Newer modern and Pythonic way 
+MEDIA_URL = '/media/'
+
