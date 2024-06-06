@@ -1,7 +1,10 @@
+#!/bin/bash
 
-
-# Exit immediately if a command exits with a non-zero status.
 set -e
+
+echo "Current directory: $(pwd)"
+echo "Listing files:"
+ls -la
 
 echo "Installing dependencies..."
 pip install -r requirements.txt
